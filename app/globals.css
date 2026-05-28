@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@theme {
+  --color-saffron: #d97706;
+  --color-saffron-deep: #b45309;
+  --color-saffron-light: #fbbf24;
+  --color-maroon: #7c2d12;
+  --color-maroon-deep: #5b1a06;
+  --color-gold: #c9a227;
+  --color-gold-light: #e9c46a;
+  --color-cream: #fdf6e3;
+  --color-parchment: #f5ead0;
+  --color-ink: #2a1505;
+
+  --font-display: "Cinzel", "Cormorant Garamond", serif;
+  --font-serif: "Cormorant Garamond", "Garamond", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sanskrit: "Tiro Devanagari Sanskrit", "Noto Sans Devanagari", serif;
+  --font-kannada: "Noto Sans Kannada", serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-maroon-deep);
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  max-width: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern", "liga", "calt";
+  overscroll-behavior: none;
+}
+
+* { min-width: 0; }
+
+/* ── Typographic scale ───────────────────────────── */
+.eyebrow {
+  font-family: var(--font-sanskrit);
+  font-size: clamp(1.4rem, 2.2vw, 1.875rem);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.display-1 {
+  font-family: var(--font-cinzel);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4.2vw, 3.75rem);
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+}
+
+.display-2 {
+  font-family: var(--font-cinzel);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.55;
+  color: rgba(42, 21, 5, 0.78);
+}
+
+.lead {
+  font-family: var(--font-cormorant);
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  line-height: 1.75;
+}
+
+.label-caps {
+  font-family: var(--font-cinzel);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+::selection { background: var(--color-saffron); color: white; }
+
+/* Native scrollbars hidden — the gold progress bar at the top of the page is the
+   only scroll indicator. Page is still fully scrollable. */
+::-webkit-scrollbar { width: 0; height: 0; display: none; }
+html { scrollbar-width: none; }
+body { -ms-overflow-style: none; }
+
+/* Ornamental background pattern */
+.bg-mandala {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(circle at 25% 20%, rgba(217, 119, 6, 0.08) 0, transparent 35%),
+    radial-gradient(circle at 75% 80%, rgba(124, 45, 18, 0.08) 0, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(201, 162, 39, 0.05) 0, transparent 60%);
+}
+
+.bg-parchment {
+  background-color: var(--color-parchment);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(124, 45, 18, 0.03) 0 2px, transparent 2px 12px),
+    repeating-linear-gradient(-45deg, rgba(217, 119, 6, 0.03) 0 2px, transparent 2px 12px);
+}
+
+.bg-temple {
+  background:
+    radial-gradient(ellipse at top, rgba(217, 119, 6, 0.15), transparent 60%),
+    linear-gradient(180deg, #5b1a06 0%, #5b1a06 15%, #2a1505 100%);
+}
+
+/* Gold gradient text */
+.text-gilded {
+  background: linear-gradient(180deg, #fde68a 0%, #c9a227 55%, #92400e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Ornate border */
+.ornate-frame {
+  position: relative;
+  border: 1px solid rgba(201, 162, 39, 0.5);
+  box-shadow:
+    inset 0 0 0 4px rgba(253, 246, 227, 0.6),
+    inset 0 0 0 5px rgba(201, 162, 39, 0.6),
+    0 20px 40px -20px rgba(124, 45, 18, 0.4);
+}
+
+.ornate-frame-dark {
+  position: relative;
+  border: 1px solid rgba(201, 162, 39, 0.5);
+  box-shadow:
+    inset 0 0 0 4px rgba(91, 26, 6, 0.7),
+    inset 0 0 0 5px rgba(201, 162, 39, 0.5),
+    0 20px 40px -20px rgba(0,0,0,0.6);
+}
+
+/* Subtle hover lift */
+.lift {
+  transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+}
+.lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 50px -20px rgba(124, 45, 18, 0.5);
+}
+
+/* Diya flicker */
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); filter: drop-shadow(0 0 12px rgba(217,119,6,0.9)); }
+}
+.flicker { animation: flicker 3s ease-in-out infinite; }
+
+/* Mandala slow rotation */
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.rotate-slow { animation: rotate-slow 80s linear infinite; }
+.rotate-reverse { animation: rotate-slow 120s linear infinite reverse; }
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(253,230,138,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float { animation: float 6s ease-in-out infinite; }
+
+/* Fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 1.2s ease-out both; }
+
+.divider-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold) 50%, transparent);
+}
+
+/* Hide scrollbar but keep functional */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Glow ring */
+.glow-ring {
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 39, 0.4),
+    0 0 30px rgba(217, 119, 6, 0.3),
+    0 0 60px rgba(217, 119, 6, 0.15);
+}
+
+/* Kannada / Hindi font support */
+:lang(kn), .lang-kn { font-family: var(--font-kannada); }
+:lang(hi), .lang-hi { font-family: var(--font-sanskrit); }
