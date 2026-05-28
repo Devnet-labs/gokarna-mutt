@@ -1,13 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { shakaMathas } from "@/lib/shakaMathas";
+import { shakaDetails } from "@/lib/shakaDetails";
 import { useT } from "@/lib/i18n";
-import { MapPin, User, Calendar, Sparkles, Phone } from "lucide-react";
+import { MapPin, User, Calendar, Sparkles, Phone, ArrowRight } from "lucide-react";
 import { useState, useMemo } from "react";
 
 export default function ShakaMathasPage() {
@@ -55,76 +57,90 @@ export default function ShakaMathasPage() {
           </Reveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((m, i) => (
-              <Reveal key={m.n} variant="up" delay={(i % 6) * 0.05}>
-                <article className="ornate-frame bg-[var(--color-cream)] p-6 lift h-full group relative overflow-hidden">
-                  <div className="absolute top-4 right-4 font-[var(--font-cinzel)] text-4xl text-[var(--color-saffron)]/15 group-hover:text-[var(--color-saffron)]/30 transition-colors">
-                    {String(m.n).padStart(2, "0")}
-                  </div>
+            {filtered.map((m, i) => {
+              const hasDetail = Boolean(shakaDetails[m.n]);
+              return (
+                <Reveal key={m.n} variant="up" delay={(i % 6) * 0.05}>
+                  <Link
+                    href={`/shaka-mathas/${m.n}`}
+                    className="ornate-frame bg-[var(--color-cream)] p-6 lift h-full group relative overflow-hidden block"
+                  >
+                    <div className="absolute top-4 right-4 font-[var(--font-cinzel)] text-4xl text-[var(--color-saffron)]/15 group-hover:text-[var(--color-saffron)]/30 transition-colors">
+                      {String(m.n).padStart(2, "0")}
+                    </div>
 
-                  <h3 className="font-[var(--font-cinzel)] text-lg text-[var(--color-maroon-deep)] mb-3 pr-12 leading-tight tracking-wide">
-                    {m.name}
-                  </h3>
+                    <div className="pr-12 mb-3">
+                      <p
+                        style={{ fontSize: "14px" }}
+                        className="caption text-[var(--color-saffron-deep)] mb-1.5 inline-flex items-center gap-1.5"
+                      >
+                        <MapPin size={13} /> {m.location}
+                      </p>
+                      <h3
+                        style={{ fontSize: "20px", lineHeight: 1.3 }}
+                        className="font-[var(--font-cinzel)] text-[var(--color-maroon-deep)] tracking-wide font-bold"
+                      >
+                        {m.name}
+                      </h3>
+                    </div>
 
-                  <div className="divider-line max-w-[60px] mb-4" />
+                    <div className="divider-line max-w-[60px] mb-4" />
 
-                  <ul className="space-y-3 text-base text-[var(--color-ink)]/85 font-[var(--font-cormorant)]">
-                    <li className="flex items-start gap-2">
-                      <MapPin size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
-                          {t("shaka.location")}
-                        </span>
-                        {m.location}
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <User size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
-                          {t("shaka.founder")}
-                        </span>
-                        {m.founder}
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Calendar size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
-                          {t("shaka.founded")}
-                        </span>
-                        {m.year}
-                      </div>
-                    </li>
-                    {m.deity && (
+                    <ul className="space-y-3 text-[var(--color-ink)]/85 font-[var(--font-cormorant)]" style={{ fontSize: "17px" }}>
                       <li className="flex items-start gap-2">
-                        <Sparkles size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
+                        <User size={16} className="text-[var(--color-saffron-deep)] mt-1 flex-shrink-0" />
                         <div>
                           <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
-                            {t("shaka.deity")}
+                            {t("shaka.founder")}
                           </span>
-                          {m.deity}
+                          {m.founder}
                         </div>
                       </li>
-                    )}
-                    <li className="flex items-start gap-2">
-                      <Phone size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
-                          {t("shaka.phone")}
-                        </span>
-                        <a
-                          href={`tel:${m.phone.replace(/\s/g, "")}`}
-                          className="hover:text-[var(--color-saffron-deep)] transition-colors"
-                        >
+                      <li className="flex items-start gap-2">
+                        <Calendar size={16} className="text-[var(--color-saffron-deep)] mt-1 flex-shrink-0" />
+                        <div>
+                          <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
+                            {t("shaka.founded")}
+                          </span>
+                          {m.year}
+                        </div>
+                      </li>
+                      {m.deity && (
+                        <li className="flex items-start gap-2">
+                          <Sparkles size={16} className="text-[var(--color-saffron-deep)] mt-1 flex-shrink-0" />
+                          <div>
+                            <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
+                              {t("shaka.deity")}
+                            </span>
+                            {m.deity}
+                          </div>
+                        </li>
+                      )}
+                      <li className="flex items-start gap-2">
+                        <Phone size={16} className="text-[var(--color-saffron-deep)] mt-1 flex-shrink-0" />
+                        <div>
+                          <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
+                            {t("shaka.phone")}
+                          </span>
                           {m.phone}
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
+                        </div>
+                      </li>
+                    </ul>
+
+                    <div className="mt-5 pt-4 border-t border-[var(--color-gold)]/30 flex items-center justify-between">
+                      <span className="caption text-[var(--color-saffron-deep)] group-hover:text-[var(--color-maroon-deep)] transition-colors inline-flex items-center gap-1.5">
+                        View Details <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                      </span>
+                      {hasDetail && (
+                        <span className="caption text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">
+                          Live
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -115,15 +115,12 @@ export default function SevaBookingPage() {
                   </div>
 
                   <div className="ornate-frame bg-[var(--color-parchment)] p-4 text-center">
-                    <div className="caption text-[var(--color-saffron-deep)]">Total</div>
+                    <div className="caption text-[var(--color-saffron-deep)]">Selected</div>
                     <div
                       style={{ fontSize: "18px" }}
                       className="font-[var(--font-cinzel)] text-gilded mt-1 font-bold"
                     >
-                      {formatINR(total)}
-                    </div>
-                    <div className="caption text-[var(--color-ink)]/60 mt-1">
-                      {selected.size} {selected.size === 1 ? "seva" : "sevas"} selected
+                      {selected.size} {selected.size === 1 ? "seva" : "sevas"}
                     </div>
                   </div>
 
@@ -221,8 +218,8 @@ export default function SevaBookingPage() {
               <p className="body-copy text-[var(--color-ink)]/85 mb-6">
                 Hari Om {form.name}. Your booking for{" "}
                 <strong>{submitted.count} {submitted.count === 1 ? "seva" : "sevas"}</strong>{" "}
-                totalling <strong>{formatINR(submitted.total)}</strong> has been received.
-                Our office will contact you on <strong>{form.phone}</strong> within 24 hours to confirm.
+                has been received. Our office will contact you on <strong>{form.phone}</strong>{" "}
+                within 24 hours to confirm dates, arrangements, and offering details.
               </p>
               <div className="ornate-frame bg-[var(--color-parchment)] p-3 mb-6">
                 <div className="caption text-[var(--color-saffron-deep)] mb-1">Reference</div>
@@ -269,19 +266,17 @@ function SevaCard({ seva, checked, onToggle }: { seva: Seva; checked: boolean; o
         </div>
 
         <div className="flex-1 min-w-0">
-          <div className="flex items-baseline justify-between gap-3 flex-wrap">
-            <h3 className="font-[var(--font-cinzel)] text-sm text-[var(--color-maroon-deep)] tracking-wide font-semibold">
-              {seva.name}
-            </h3>
-            <span
-              style={{ fontSize: "18px" }}
-              className="font-[var(--font-cinzel)] text-gilded font-bold whitespace-nowrap"
-            >
-              {formatINR(seva.amount)}
-            </span>
-          </div>
+          <h3
+            style={{ fontSize: "18px" }}
+            className="font-[var(--font-cinzel)] text-[var(--color-maroon-deep)] tracking-wide font-semibold"
+          >
+            {seva.name}
+          </h3>
           {seva.tagline && (
-            <p className="text-[13px] text-[var(--color-ink)]/65 mt-1 italic font-[var(--font-cormorant)] leading-snug">
+            <p
+              style={{ fontSize: "16px" }}
+              className="text-[var(--color-ink)]/70 mt-1.5 italic font-[var(--font-cormorant)] leading-snug"
+            >
               {seva.tagline}
             </p>
           )}

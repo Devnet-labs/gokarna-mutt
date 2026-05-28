@@ -68,7 +68,10 @@ export default function Peethadhipati() {
 
               <div className="divider-line max-w-[200px]" />
 
-              <p className="body-copy text-[var(--color-cream)]/90">
+              <p
+                style={{ fontSize: "18px", lineHeight: 1.7 }}
+                className="font-[var(--font-cormorant)] text-[var(--color-cream)]/90"
+              >
                 {t("peeth.bio")}
               </p>
 

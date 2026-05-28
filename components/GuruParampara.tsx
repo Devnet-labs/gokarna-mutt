@@ -58,7 +58,7 @@ export default function GuruParampara() {
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[var(--color-saffron-deep)] to-transparent" />
 
           <div className="space-y-6 md:space-y-2">
-            {gurus.map((g, i) => {
+            {[...gurus].reverse().map((g, i) => {
               const left = i % 2 === 0;
               return (
                 <Reveal key={g.n} variant={left ? "left" : "right"} delay={0.05}>
@@ -83,14 +83,29 @@ export default function GuruParampara() {
                           {g.name}
                         </h3>
                         <div className="flex flex-wrap gap-x-4 gap-y-1 text-base text-[var(--color-ink)]/75">
-                          <span>
-                            <span className="caption mr-1 text-[var(--color-saffron-deep)]">{t("guru.mahaNirvan")}:</span>
-                            {g.date}
-                          </span>
-                          <span>
-                            <span className="caption mr-1 text-[var(--color-saffron-deep)]">{t("guru.brindavan")}:</span>
-                            {g.place}
-                          </span>
+                          {g.current ? (
+                            <span>
+                              <span className="caption mr-1 text-[var(--color-saffron-deep)]">
+                                Pattabhisheka:
+                              </span>
+                              2021
+                            </span>
+                          ) : (
+                            <>
+                              <span>
+                                <span className="caption mr-1 text-[var(--color-saffron-deep)]">
+                                  {t("guru.mahaNirvan")}:
+                                </span>
+                                {g.date}
+                              </span>
+                              <span>
+                                <span className="caption mr-1 text-[var(--color-saffron-deep)]">
+                                  {t("guru.brindavan")}:
+                                </span>
+                                {g.place}
+                              </span>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>

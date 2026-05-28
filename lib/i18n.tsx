@@ -117,7 +117,7 @@ export const dict: Dict = {
 
   // Contact
   "contact.eyebrow": { en: "Contact", hi: "संपर्क", kn: "ಸಂಪರ್ಕ" },
-  "contact.title": { en: "Visit · Connect", hi: "दर्शन · संपर्क", kn: "ಭೇಟಿ · ಸಂಪರ್ಕ" },
+  "contact.title": { en: "Contact", hi: "संपर्क", kn: "ಸಂಪರ್ಕ" },
   "contact.address": { en: "Address", hi: "पता", kn: "ವಿಳಾಸ" },
   "contact.phone": { en: "Telephone", hi: "दूरभाष", kn: "ದೂರವಾಣಿ" },
   "contact.hours": { en: "Darshan Hours", hi: "दर्शन समय", kn: "ದರ್ಶನದ ಸಮಯ" },
