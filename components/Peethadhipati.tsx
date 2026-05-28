@@ -27,12 +27,8 @@ export default function Peethadhipati() {
       <div className="relative max-w-6xl mx-auto">
         <Reveal>
           <div className="text-center">
-            <p className="eyebrow text-[var(--color-gold-light)] mb-4">
-              {t("peeth.eyebrow")}
-            </p>
-            <h2 className="display-2 text-gilded">
-              {t("peeth.title")}
-            </h2>
+            <p className="eyebrow text-[var(--color-gold-light)] mb-4">{t("peeth.eyebrow")}</p>
+            <h2 className="display-2 text-gilded">{t("peeth.title")}</h2>
             <OmDivider light />
           </div>
         </Reveal>
@@ -45,7 +41,7 @@ export default function Peethadhipati() {
               className="ornate-frame-dark rounded-sm overflow-hidden bg-[var(--color-maroon-deep)] p-3 glow-ring"
             >
               <SmartImage
-                src="/images/peethadhipati-new.png"
+                src="/images/SVTSV.jpg.jpeg"
                 fallbackSrc="/images/peethadhipati.jpeg"
                 alt="Shri Vidyadheesh Teerth Swamiji"
                 width={420}
@@ -63,13 +59,13 @@ export default function Peethadhipati() {
               <h3 className="font-[var(--font-cinzel)] text-3xl md:text-5xl text-gilded">
                 {t("peeth.name")}
               </h3>
-              <p className="font-[var(--font-cormorant)] text-lg text-[var(--color-cream)]/90 italic">
+              <p className="body-copy text-[var(--color-cream)]/90 italic">
                 {t("peeth.suffix")}
               </p>
 
               <div className="divider-line max-w-[200px]" />
 
-              <p className="font-[var(--font-cormorant)] text-lg leading-relaxed text-[var(--color-cream)]/90">
+              <p className="body-copy text-[var(--color-cream)]/90">
                 {t("peeth.bio")}
               </p>
 

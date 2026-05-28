@@ -58,7 +58,7 @@ export default function PageHeader({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mt-6 font-[var(--font-cormorant)] text-lg md:text-xl text-[var(--color-cream)]/90 italic max-w-3xl leading-relaxed"
+            className="mt-6 body-copy text-[var(--color-cream)]/90 italic max-w-3xl"
           >
             {subtitle}
           </motion.p>

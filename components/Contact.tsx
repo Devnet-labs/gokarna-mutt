@@ -13,12 +13,8 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto">
         <Reveal>
           <div className="text-center">
-            <p className="eyebrow text-[var(--color-gold-light)] mb-4">
-              {t("contact.eyebrow")}
-            </p>
-            <h2 className="display-2 text-gilded">
-              {t("contact.title")}
-            </h2>
+            <p className="eyebrow text-[var(--color-gold-light)] mb-4">{t("contact.eyebrow")}</p>
+            <h2 className="display-2 text-gilded">{t("contact.title")}</h2>
             <OmDivider light />
           </div>
         </Reveal>
@@ -32,7 +28,7 @@ export default function Contact() {
                   {t("contact.address")}
                 </p>
               </div>
-              <p className="font-[var(--font-cormorant)] text-xl leading-relaxed text-[var(--color-cream)]">
+              <p className="body-copy text-[var(--color-cream)]">
                 Shree Partagal Mutt,
                 <br />
                 Partagali, Poinginium,

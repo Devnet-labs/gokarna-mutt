@@ -1,0 +1,67 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { motion } from "framer-motion";
+import { useT } from "@/lib/i18n";
+
+export default function PageHeader({
+  eyebrow,
+  title,
+  subtitle
+}: {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+}) {
+  const { t } = useT();
+  return (
+    <section className="relative pt-32 pb-16 px-6 bg-[var(--color-maroon-deep)] text-[var(--color-cream)] overflow-hidden">
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-[var(--color-saffron)]/30 blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-[var(--color-gold)]/20 blur-3xl" />
+        <div className="absolute top-0 inset-x-0 h-[300px] bg-gradient-to-b from-transparent to-[#3a1106]/50" />
+      </div>
+
+      <div className="relative max-w-5xl mx-auto">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-[var(--color-gold-light)] hover:text-[var(--color-saffron-light)] mb-6 text-xs uppercase tracking-widest font-[var(--font-cinzel)] transition-colors"
+        >
+          <ArrowLeft size={14} /> {t("common.back")}
+        </Link>
+
+        {eyebrow && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-[var(--font-tiro)] text-[var(--color-gold-light)] text-xl sm:text-2xl mb-3"
+          >
+            {eyebrow}
+          </motion.p>
+        )}
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="font-[var(--font-cinzel)] text-4xl sm:text-6xl md:text-7xl text-gilded tracking-wider"
+        >
+          {title}
+        </motion.h1>
+
+        {subtitle && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="mt-6 font-[var(--font-cormorant)] text-lg md:text-xl text-[var(--color-cream)]/90 italic max-w-3xl leading-relaxed"
+          >
+            {subtitle}
+          </motion.p>
+        )}
+      </div>
+    </section>
+  );
+}

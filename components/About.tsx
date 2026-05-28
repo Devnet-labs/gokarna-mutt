@@ -32,7 +32,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-start mt-12">
           <Reveal variant="left">
-            <div className="space-y-6 font-[var(--font-cormorant)] text-lg leading-relaxed text-[var(--color-ink)]">
+            <div className="space-y-6 body-copy text-[var(--color-ink)]">
               <p className="first-letter:font-[var(--font-cinzel)] first-letter:text-6xl first-letter:float-left first-letter:mr-3 first-letter:text-[var(--color-saffron-deep)] first-letter:leading-none">
                 {t("about.p1")}
               </p>
@@ -48,7 +48,7 @@ export default function About() {
                     <div className="font-[var(--font-cinzel)] text-4xl text-[var(--color-saffron-deep)] mb-2">
                       <Counter value={s.n} suffix={s.suffix} />
                     </div>
-                    <div className="text-[10px] sm:text-xs uppercase tracking-widest text-[var(--color-maroon-deep)]">
+                    <div className="caption text-[var(--color-maroon-deep)]">
                       {s.label}
                     </div>
                   </div>

@@ -2,43 +2,68 @@
 
 import { motion } from "framer-motion";
 import { useT } from "@/lib/i18n";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import { Lotus } from "./Icons";
+/* eslint-disable @next/next/no-img-element */
 
-const BG_VIDEO_ID = "miky3vBA5sc";
+const BG_VIDEO_SRC = "/images/Video.mp4";
 
 export default function Hero() {
   const { t } = useT();
 
   return (
-    <section id="top" className="relative min-h-screen text-[var(--color-cream)] overflow-hidden bg-[var(--color-maroon-deep)]">
-      {/* YouTube background video — fills the hero on every viewport (desktop + mobile).
-          Muted + playsinline → autoplay works on iOS and Android. No controls, no overlays.
-          The iframe is enlarged and shifted up so the YouTube title bar (at the top of the
-          embed) is cropped outside the visible area. */}
+    <section
+      id="top"
+      className="relative min-h-screen text-[var(--color-cream)] overflow-hidden bg-[var(--color-maroon-deep)]"
+    >
+      {/* Local mp4 background — autoplay, muted, loop, no controls. */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <iframe
-          className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-          style={{
-            width: "max(116vw, 200vh)",
-            height: "max(116vh, 65vw)",
-            top: "-8vh",
-            border: 0
-          }}
-          src={`https://www.youtube.com/embed/${BG_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${BG_VIDEO_ID}&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0`}
-          title=""
-          allow="autoplay; encrypted-media; picture-in-picture"
-          referrerPolicy="strict-origin-when-cross-origin"
-          tabIndex={-1}
+        <video
+          src={BG_VIDEO_SRC}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          controls={false}
           aria-hidden="true"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover pointer-events-none"
+          style={{ width: "max(100vw, 177.78vh)", height: "max(100vh, 56.25vw)" }}
         />
-        {/* Click-shield over the iframe so the YouTube UI can never be summoned. */}
+        {/* Click-shield so the video can never be interacted with. */}
         <div className="absolute inset-0" />
-        {/* Uniform darken — keeps gold text readable, no edge masks so the video
-            reaches the very top and bottom of the hero. */}
+        {/* Uniform darken — keeps gold text readable. */}
         <div className="absolute inset-0 bg-[var(--color-maroon-deep)]/35" />
       </div>
 
-      {/* Ambient glows — animated, sit over the video */}
+      {/* Flanking deity images — small, anchored to the bottom corners. */}
+      <motion.img
+        src="/images/1.png"
+        alt=""
+        aria-hidden="true"
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.2, delay: 0.4 }}
+        className="absolute bottom-0 left-0 z-[5] pointer-events-none select-none object-contain object-bottom drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]
+                   h-[14vh] sm:h-[18vh] md:h-[22vh] lg:h-[26vh] xl:h-[30vh]
+                   max-w-[22vw] sm:max-w-[18vw] md:max-w-[15vw]
+                   [mask-image:linear-gradient(to_top,black_70%,transparent_100%)]"
+      />
+      <motion.img
+        src="/images/2.png"
+        alt=""
+        aria-hidden="true"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.2, delay: 0.4 }}
+        className="absolute bottom-0 right-0 z-[5] pointer-events-none select-none object-contain object-bottom drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]
+                   h-[14vh] sm:h-[18vh] md:h-[22vh] lg:h-[26vh] xl:h-[30vh]
+                   max-w-[22vw] sm:max-w-[18vw] md:max-w-[15vw]
+                   [mask-image:linear-gradient(to_top,black_70%,transparent_100%)]"
+      />
+
+      {/* Ambient glows */}
       <div className="absolute inset-0 opacity-25 pointer-events-none">
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -52,66 +77,35 @@ export default function Hero() {
         />
       </div>
 
-      {/* Animated mandala overlays */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="absolute w-[140vmin] h-[140vmin] opacity-[0.08] rotate-slow">
-          <Mandala />
-        </div>
-        <div className="absolute w-[100vmin] h-[100vmin] opacity-[0.06] rotate-reverse">
-          <Mandala />
-        </div>
-      </div>
-
-      <div className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-20 min-h-screen flex flex-col items-center justify-center text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-20 min-h-screen flex flex-col items-center text-center">
         <motion.p
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="eyebrow text-[var(--color-gold-light)] mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+          style={{ fontSize: "16px" }}
+          className="font-[var(--font-sanskrit)] font-bold text-[var(--color-gold-light)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] tracking-wide leading-tight"
         >
           {t("hero.invocation")}
         </motion.p>
 
-        {/* Soft dark plate behind the title so it reads cleanly on the video */}
-        <motion.div
+        <div className="flex-1" />
+
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="relative inline-block px-8 py-6 max-w-full"
+          className="display-1 text-gilded drop-shadow-[0_4px_22px_rgba(0,0,0,0.9)] max-w-full"
         >
-          <div className="absolute inset-0 bg-[var(--color-maroon-deep)]/55 backdrop-blur-[2px] rounded-sm" />
-          <h1 className="relative display-1 text-gilded drop-shadow-[0_4px_18px_rgba(0,0,0,0.8)]">
-            {t("hero.titleA")} {t("hero.titleB")}
-            <br />
-            {t("hero.titleC")}
-          </h1>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="flex items-center gap-3 my-8"
-        >
-          <span className="divider-line w-16 sm:w-24" />
-          <Sparkles className="text-[var(--color-gold-light)]" size={20} />
-          <span className="divider-line w-16 sm:w-24" />
-        </motion.div>
+          {t("hero.titleA")} {t("hero.titleB")}
+          <br />
+          {t("hero.titleC")}
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 1 }}
-          className="font-[var(--font-cormorant)] text-lg md:text-2xl text-[var(--color-cream)]/95 max-w-3xl italic leading-[1.55] px-2 font-light drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]"
-        >
-          {t("hero.subtitle")}
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 1.2 }}
-          className="mt-8 label-caps text-[var(--color-gold-light)]/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+          transition={{ duration: 1.2, delay: 0.9 }}
+          className="mt-6 label-caps font-bold text-[var(--color-gold-light)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]"
         >
           {t("hero.tagline")}
         </motion.p>
@@ -119,20 +113,15 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.4 }}
-          className="mt-12 flex flex-wrap items-center justify-center gap-4"
+          transition={{ duration: 1, delay: 1.1 }}
+          className="mt-10 flex items-center justify-center"
         >
           <a
-            href="#about"
-            className="px-6 sm:px-8 py-3 border border-[var(--color-gold)] text-[var(--color-gold-light)] font-[var(--font-cinzel)] text-xs sm:text-sm tracking-widest uppercase hover:bg-[var(--color-gold)] hover:text-[var(--color-maroon-deep)] transition-all backdrop-blur-sm"
+            href="/seva"
+            className="group inline-flex items-center gap-3 px-12 sm:px-14 py-5 rounded-full bg-gradient-to-b from-[var(--color-gold-light)] via-[var(--color-gold)] to-[#a37a14] text-[var(--color-maroon-deep)] font-[var(--font-cinzel)] font-bold text-base sm:text-lg tracking-[0.28em] uppercase hover:from-[#fde68a] hover:via-[var(--color-gold-light)] hover:to-[var(--color-gold)] transition-all shadow-[0_14px_40px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_18px_50px_-10px_rgba(233,196,106,0.55)] ring-1 ring-inset ring-white/40"
           >
-            {t("hero.cta1")}
-          </a>
-          <a
-            href="#guruparampara"
-            className="px-6 sm:px-8 py-3 bg-[var(--color-saffron-deep)] text-[var(--color-cream)] font-[var(--font-cinzel)] text-xs sm:text-sm tracking-widest uppercase hover:bg-[var(--color-saffron)] transition-all shadow-lg"
-          >
-            {t("hero.cta2")}
+            <Lotus size={22} className="transition-transform group-hover:scale-110 group-hover:rotate-12" />
+            {t("hero.cta3")}
           </a>
         </motion.div>
 
@@ -145,39 +134,6 @@ export default function Hero() {
           <ArrowDown size={20} />
         </motion.div>
       </div>
-
-      <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[var(--color-maroon-deep)] to-transparent pointer-events-none" />
     </section>
-  );
-}
-
-function Mandala() {
-  const fx = (n: number) => n.toFixed(2);
-  return (
-    <svg viewBox="0 0 800 800" className="w-full h-full">
-      <g stroke="currentColor" fill="none" strokeWidth="0.5">
-        {[380, 320, 260, 200, 140, 80].map((r) => (
-          <circle key={r} cx="400" cy="400" r={r} />
-        ))}
-        {Array.from({ length: 32 }).map((_, i) => {
-          const angle = (i * Math.PI * 2) / 32;
-          return (
-            <line
-              key={i}
-              x1={fx(400 + Math.cos(angle) * 80)}
-              y1={fx(400 + Math.sin(angle) * 80)}
-              x2={fx(400 + Math.cos(angle) * 380)}
-              y2={fx(400 + Math.sin(angle) * 380)}
-            />
-          );
-        })}
-        {Array.from({ length: 12 }).map((_, i) => {
-          const angle = (i * Math.PI * 2) / 12;
-          const x = fx(400 + Math.cos(angle) * 260);
-          const y = fx(400 + Math.sin(angle) * 260);
-          return <circle key={`p-${i}`} cx={x} cy={y} r="20" strokeWidth="0.7" />;
-        })}
-      </g>
-    </svg>
   );
 }

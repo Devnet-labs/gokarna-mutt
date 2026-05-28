@@ -25,6 +25,8 @@ html, body {
   background: var(--color-maroon-deep);
   color: var(--color-ink);
   font-family: var(--font-serif);
+  font-size: 16px;           /* Body baseline */
+  line-height: 1.65;
   scroll-behavior: smooth;
   overflow-x: clip;
   max-width: 100%;
@@ -37,48 +39,54 @@ html, body {
 
 * { min-width: 0; }
 
-/* ── Typographic scale ───────────────────────────── */
-.eyebrow {
-  font-family: var(--font-sanskrit);
-  font-size: clamp(1.4rem, 2.2vw, 1.875rem);
-  letter-spacing: 0.02em;
-  line-height: 1.1;
-}
+/* ── Typographic scale ───────────────────────────────
+   Heading  → 36px
+   Body     → 14px (set on <body>)
+   Caption  → 12px
+   ──────────────────────────────────────────────────── */
 
-.display-1 {
-  font-family: var(--font-cinzel);
-  font-weight: 600;
-  font-size: clamp(1.9rem, 4.2vw, 3.75rem);
-  line-height: 1.1;
-  letter-spacing: 0.04em;
-}
-
+.display-1,
 .display-2 {
   font-family: var(--font-cinzel);
   font-weight: 600;
-  font-size: clamp(2rem, 5vw, 3.75rem);
-  line-height: 1.1;
-  letter-spacing: 0.05em;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.eyebrow {
+  font-family: var(--font-sanskrit);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
 .subtitle {
   font-family: var(--font-cormorant);
   font-style: italic;
-  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.6;
   color: rgba(42, 21, 5, 0.78);
 }
 
 .lead {
   font-family: var(--font-cormorant);
-  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  font-size: 16px;
   line-height: 1.75;
 }
 
-.label-caps {
+/* Body copy inside content sections (About paragraphs, sub-descriptions, etc.) */
+.body-copy {
+  font-family: var(--font-cormorant);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.label-caps,
+.caption {
   font-family: var(--font-cinzel);
-  font-size: 0.7rem;
-  letter-spacing: 0.35em;
+  font-size: 12px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
 }
 

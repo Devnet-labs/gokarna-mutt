@@ -73,7 +73,7 @@ export default function SocialInitiatives() {
                     </div>
                   </div>
                   <div className="divider-line max-w-[60px] mb-4" />
-                  <p className="font-[var(--font-cormorant)] text-base text-[var(--color-ink)]/85 leading-relaxed">
+                  <p className="body-copy text-[var(--color-ink)]/85">
                     {s.desc}
                   </p>
                 </article>

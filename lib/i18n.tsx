@@ -35,6 +35,7 @@ export const dict: Dict = {
   },
   "hero.cta1": { en: "Discover the Math", hi: "मठ के बारे में जानें", kn: "ಮಠವನ್ನು ಅರಿಯಿರಿ" },
   "hero.cta2": { en: "Guru Lineage", hi: "गुरु परम्परा", kn: "ಗುರು ಪರಂಪರೆ" },
+  "hero.cta3": { en: "Book Seva", hi: "सेवा बुक करें", kn: "ಸೇವೆ ಬುಕ್ ಮಾಡಿ" },
 
   // About
   "about.eyebrow": { en: "Heritage", hi: "विरासत", kn: "ಪರಂಪರೆ" },

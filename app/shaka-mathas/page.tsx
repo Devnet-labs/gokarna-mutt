@@ -68,11 +68,11 @@ export default function ShakaMathasPage() {
 
                   <div className="divider-line max-w-[60px] mb-4" />
 
-                  <ul className="space-y-3 text-sm text-[var(--color-ink)]/85 font-[var(--font-cormorant)]">
+                  <ul className="space-y-3 text-base text-[var(--color-ink)]/85 font-[var(--font-cormorant)]">
                     <li className="flex items-start gap-2">
                       <MapPin size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
                       <div>
-                        <span className="text-[10px] uppercase tracking-widest text-[var(--color-saffron-deep)] block">
+                        <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
                           {t("shaka.location")}
                         </span>
                         {m.location}
@@ -81,7 +81,7 @@ export default function ShakaMathasPage() {
                     <li className="flex items-start gap-2">
                       <User size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
                       <div>
-                        <span className="text-[10px] uppercase tracking-widest text-[var(--color-saffron-deep)] block">
+                        <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
                           {t("shaka.founder")}
                         </span>
                         {m.founder}
@@ -90,7 +90,7 @@ export default function ShakaMathasPage() {
                     <li className="flex items-start gap-2">
                       <Calendar size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
                       <div>
-                        <span className="text-[10px] uppercase tracking-widest text-[var(--color-saffron-deep)] block">
+                        <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
                           {t("shaka.founded")}
                         </span>
                         {m.year}
@@ -100,7 +100,7 @@ export default function ShakaMathasPage() {
                       <li className="flex items-start gap-2">
                         <Sparkles size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
                         <div>
-                          <span className="text-[10px] uppercase tracking-widest text-[var(--color-saffron-deep)] block">
+                          <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
                             {t("shaka.deity")}
                           </span>
                           {m.deity}
@@ -110,7 +110,7 @@ export default function ShakaMathasPage() {
                     <li className="flex items-start gap-2">
                       <Phone size={14} className="text-[var(--color-saffron-deep)] mt-0.5 flex-shrink-0" />
                       <div>
-                        <span className="text-[10px] uppercase tracking-widest text-[var(--color-saffron-deep)] block">
+                        <span className="caption text-[var(--color-saffron-deep)] block mb-0.5">
                           {t("shaka.phone")}
                         </span>
                         <a

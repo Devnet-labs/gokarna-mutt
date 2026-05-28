@@ -64,7 +64,7 @@ export default function MathSections() {
                     {s.title}
                   </h3>
                   <div className="divider-line max-w-[60px] mb-4" />
-                  <p className="font-[var(--font-cormorant)] text-base text-[var(--color-ink)]/85 leading-relaxed mb-4">
+                  <p className="body-copy text-[var(--color-ink)]/85 mb-4">
                     {s.desc}
                   </p>
                   <span className="inline-flex items-center gap-1 text-xs uppercase tracking-widest text-[var(--color-saffron-deep)] font-[var(--font-cinzel)] group-hover:gap-2 transition-all">

@@ -82,13 +82,13 @@ export default function GuruParampara() {
                         <h3 className="font-[var(--font-cinzel)] text-lg md:text-xl text-[var(--color-maroon-deep)] mb-2">
                           {g.name}
                         </h3>
-                        <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--color-ink)]/70">
+                        <div className="flex flex-wrap gap-x-4 gap-y-1 text-base text-[var(--color-ink)]/75">
                           <span>
-                            <span className="uppercase tracking-widest mr-1">{t("guru.mahaNirvan")}:</span>
+                            <span className="caption mr-1 text-[var(--color-saffron-deep)]">{t("guru.mahaNirvan")}:</span>
                             {g.date}
                           </span>
                           <span>
-                            <span className="uppercase tracking-widest mr-1">{t("guru.brindavan")}:</span>
+                            <span className="caption mr-1 text-[var(--color-saffron-deep)]">{t("guru.brindavan")}:</span>
                             {g.place}
                           </span>
                         </div>

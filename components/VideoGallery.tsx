@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Play, X, ExternalLink } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import OmDivider from "./OmDivider";
 import Reveal from "./Reveal";
@@ -158,12 +158,7 @@ export default function VideoGallery() {
                   </g>
                 </svg>
 
-                {/* Play icon */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-20 h-20 rounded-full bg-[var(--color-cream)]/20 backdrop-blur-sm border border-[var(--color-gold-light)]/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-[var(--color-saffron-deep)] transition-all">
-                    <Play className="text-[var(--color-gold-light)] ml-1" size={28} fill="currentColor" />
-                  </div>
-                </div>
+                {/* Play icon removed — the card itself is the play affordance. */}
 
                 {/* Text overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-left pointer-events-none">
