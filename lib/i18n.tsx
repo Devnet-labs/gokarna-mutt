@@ -60,7 +60,11 @@ export const dict: Dict = {
   "peeth.eyebrow": { en: "Present Peethadhipati", hi: "वर्तमान पीठाधिपति", kn: "ಪ್ರಸ್ತುತ ಪೀಠಾಧಿಪತಿ" },
   "peeth.title": { en: "The Present Peethadhipati", hi: "वर्तमान पीठाधिपति", kn: "ಪ್ರಸ್ತುತ ಪೀಠಾಧಿಪತಿ" },
   "peeth.lineageOrder": { en: "24th in the lineage", hi: "परम्परा में २४वें", kn: "ಪರಂಪರೆಯ ೨೪ನೇ" },
-  "peeth.name": { en: "Shri Vidyadheesh Teerth", hi: "श्री विद्याधीश तीर्थ", kn: "ಶ್ರೀ ವಿದ್ಯಾಧೀಶ ತೀರ್ಥ" },
+  "peeth.name": {
+    en: "H.H. Shrimad Vidyadheesh Teerth Shripad Vader Swamiji",
+    hi: "परम पूज्य श्रीमद् विद्याधीश तीर्थ श्रीपाद वादेर स्वामीजी",
+    kn: "ಪರಮ ಪೂಜ್ಯ ಶ್ರೀಮದ್ ವಿದ್ಯಾಧೀಶ ತೀರ್ಥ ಶ್ರೀಪಾದ ವಾದೆರ್ ಸ್ವಾಮೀಜಿ"
+  },
   "peeth.suffix": { en: "Swamiji", hi: "स्वामीजी", kn: "ಸ್ವಾಮೀಜಿ" },
   "peeth.bio": {
     en: "His Holiness assumed the seat of the Peethadhipati in 2021, following the Maha Nirvan of Shri Vidyadhiraja Teerth. He continues the sacred custodianship of the Math, guiding devotees through the principles of Dvaita Vedanta and the eternal teachings of Jagadguru Madhvacharya.",

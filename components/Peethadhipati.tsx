@@ -53,15 +53,18 @@ export default function Peethadhipati() {
 
           <Reveal variant="right" className="md:col-span-3">
             <div className="space-y-6">
-              <p className="text-xs uppercase tracking-[0.4em] text-[var(--color-gold-light)]">
+              <p
+                style={{ fontSize: "16px" }}
+                className="uppercase tracking-[0.3em] text-[var(--color-gold-light)] font-bold font-[var(--font-cinzel)]"
+              >
                 {t("peeth.lineageOrder")}
               </p>
-              <h3 className="font-[var(--font-cinzel)] text-3xl md:text-5xl text-gilded">
+              <h3
+                style={{ fontSize: "32px", lineHeight: 1.2 }}
+                className="font-[var(--font-cinzel)] text-gilded font-bold"
+              >
                 {t("peeth.name")}
               </h3>
-              <p className="body-copy text-[var(--color-cream)]/90 italic">
-                {t("peeth.suffix")}
-              </p>
 
               <div className="divider-line max-w-[200px]" />
 
@@ -71,7 +74,10 @@ export default function Peethadhipati() {
 
               <div className="grid grid-cols-2 gap-6 pt-4">
                 <div>
-                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-gold-light)]/70 mb-1">
+                  <p
+                    style={{ fontSize: "16px" }}
+                    className="uppercase tracking-[0.2em] text-[var(--color-gold-light)] mb-2 font-bold font-[var(--font-cinzel)]"
+                  >
                     {t("peeth.sanyasa")}
                   </p>
                   <p className="font-[var(--font-cinzel)] text-xl text-[var(--color-gold-light)]">
@@ -79,7 +85,10 @@ export default function Peethadhipati() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-gold-light)]/70 mb-1">
+                  <p
+                    style={{ fontSize: "16px" }}
+                    className="uppercase tracking-[0.2em] text-[var(--color-gold-light)] mb-2 font-bold font-[var(--font-cinzel)]"
+                  >
                     {t("peeth.pattabhi")}
                   </p>
                   <p className="font-[var(--font-cinzel)] text-xl text-[var(--color-gold-light)]">

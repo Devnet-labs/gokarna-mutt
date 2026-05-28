@@ -38,6 +38,8 @@ export default function Hero() {
       </div>
 
       {/* Flanking deity images — small, anchored to the bottom corners. */}
+      {/* Flanking swamji photos — anchored to the top-left & top-right corners,
+          just below the navbar. */}
       <motion.img
         src="/images/1.png"
         alt=""
@@ -45,10 +47,10 @@ export default function Hero() {
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2, delay: 0.4 }}
-        className="absolute bottom-0 left-0 z-[5] pointer-events-none select-none object-contain object-bottom drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]
-                   h-[14vh] sm:h-[18vh] md:h-[22vh] lg:h-[26vh] xl:h-[30vh]
-                   max-w-[22vw] sm:max-w-[18vw] md:max-w-[15vw]
-                   [mask-image:linear-gradient(to_top,black_70%,transparent_100%)]"
+        className="absolute top-20 sm:top-24 left-0 z-[5] pointer-events-none select-none object-contain object-top drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]
+                   h-[10vh] sm:h-[18vh] md:h-[24vh] lg:h-[28vh] xl:h-[32vh]
+                   max-w-[18vw] sm:max-w-[20vw] md:max-w-[18vw]
+                   [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]"
       />
       <motion.img
         src="/images/2.png"
@@ -57,10 +59,10 @@ export default function Hero() {
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2, delay: 0.4 }}
-        className="absolute bottom-0 right-0 z-[5] pointer-events-none select-none object-contain object-bottom drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]
-                   h-[14vh] sm:h-[18vh] md:h-[22vh] lg:h-[26vh] xl:h-[30vh]
-                   max-w-[22vw] sm:max-w-[18vw] md:max-w-[15vw]
-                   [mask-image:linear-gradient(to_top,black_70%,transparent_100%)]"
+        className="absolute top-20 sm:top-24 right-0 z-[5] pointer-events-none select-none object-contain object-top drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]
+                   h-[10vh] sm:h-[18vh] md:h-[24vh] lg:h-[28vh] xl:h-[32vh]
+                   max-w-[18vw] sm:max-w-[20vw] md:max-w-[18vw]
+                   [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]"
       />
 
       {/* Ambient glows */}

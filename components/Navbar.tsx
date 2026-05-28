@@ -43,15 +43,16 @@ export default function Navbar() {
         scrolled ? "shadow-[0_8px_24px_-12px_rgba(0,0,0,0.5)]" : ""
       }`}
     >
-      <nav className="max-w-[1500px] mx-auto flex items-center justify-between gap-4 px-4 sm:px-6 py-3">
+      <nav className="max-w-[1500px] mx-auto flex items-center justify-between gap-4 px-4 sm:px-6 py-1.5">
         <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 1.2, ease: "easeInOut" }}>
+          <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 1.2, ease: "easeInOut" }} className="shrink-0">
             <Image
               src="/images/seal.png"
               alt="Partagali Math seal"
-              width={52}
-              height={52}
-              className="drop-shadow-md"
+              width={64}
+              height={64}
+              priority
+              className="drop-shadow-[0_3px_10px_rgba(0,0,0,0.4)] w-[44px] h-[44px] sm:w-[52px] sm:h-[52px] lg:w-[60px] lg:h-[60px]"
             />
           </motion.div>
           <div className="leading-tight hidden sm:block">
